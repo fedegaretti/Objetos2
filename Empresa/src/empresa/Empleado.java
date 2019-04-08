@@ -3,21 +3,22 @@ package empresa;
 import java.time.LocalDate;
 import java.time.Period;
 
-public class Empleado {
+abstract class Empleado {
 	private String nombre;
 	private Direccion direccion;
 	private EstadoCivil estadoCivil;
 	private LocalDate fechaDeNacimiento;
 	private int sueldoBasico;
 
-	public Empleado( String nombre, Direccion direccion, EstadoCivil estadoCivil, LocalDate fechaDeNacimiento, int sueldoBasico) {
+	public Empleado(String nombre, Direccion direccion, EstadoCivil estadoCivil, LocalDate fechaDeNacimiento,
+			int sueldoBasico) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.estadoCivil = estadoCivil;
 		this.fechaDeNacimiento = fechaDeNacimiento;
 		this.sueldoBasico = sueldoBasico;
 	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -60,8 +61,12 @@ public class Empleado {
 	public int edad() {
 		LocalDate fechaNacimiento = fechaDeNacimiento;
 		LocalDate hoy = LocalDate.now();
-		return Period.between(fechaNacimiento,hoy).getYears();
+		return Period.between(fechaNacimiento, hoy).getYears();
 	}
-	
-}
 
+	abstract int sueldoBruto();
+
+	abstract int sueldoNeto();
+
+	abstract int retenciones();
+}
