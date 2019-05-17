@@ -1,6 +1,6 @@
 package cultivos;
 
-public interface plantable {
+public interface IPlantable {
 	
 	public int getGanancia();
 }

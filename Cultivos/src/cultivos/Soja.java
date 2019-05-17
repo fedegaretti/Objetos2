@@ -1,6 +1,10 @@
 package cultivos;
 
-public class Soja implements plantable {
+public class Soja implements IPlantable {
+
+	public Soja() {
+		this.ganancia = 500;
+	}
 
 	private int ganancia;
 	
